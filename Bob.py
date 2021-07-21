@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import minecraft
+import Crypto_funcs
 import socket
 import time
 
@@ -9,8 +9,8 @@ PORT = 8000  # The port used by the server
 
 
 def decryption(cipherkey, ciphertext, privkey_pem):
-    aes_key = minecraft.rsa_decryption(privkey_pem, cipherkey)
-    plaintext = minecraft.aes_decryption(ciphertext, aes_key)
+    aes_key = Crypto_funcs.rsa_decryption(privkey_pem, cipherkey)
+    plaintext = Crypto_funcs.aes_decryption(ciphertext, aes_key)
     return plaintext
 
 
@@ -31,7 +31,7 @@ def receive_from_another(HOST, PORT):
                 return data
 
 
-privkey_pem, pubkey_pem = minecraft.rsa_keys_generate()
+privkey_pem, pubkey_pem = Crypto_funcs.rsa_keys_generate()
 
 send_to_another(HOST, PORT, pubkey_pem)
 time.sleep(1)

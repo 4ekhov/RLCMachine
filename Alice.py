@@ -1,6 +1,6 @@
 #!?usr/bin/python3
 
-import minecraft
+import Crypto_funcs
 import socket
 import time
 
@@ -9,9 +9,9 @@ PORT = 8000  # Port to listen on (non-privileged ports are > 1023)
 
 
 def message(text, pubkey_pem):
-    aes_key = minecraft.aes_key_generate()
-    ciphertext = minecraft.aes_encryption(text, aes_key)
-    cipherkey = minecraft.rsa_encryption(pubkey_pem, aes_key)
+    aes_key = Crypto_funcs.aes_key_generate()
+    ciphertext = Crypto_funcs.aes_encryption(text, aes_key)
+    cipherkey = Crypto_funcs.rsa_encryption(pubkey_pem, aes_key)
     return [cipherkey, ciphertext]
 
 
