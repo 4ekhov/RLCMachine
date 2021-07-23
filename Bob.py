@@ -4,9 +4,6 @@ import Crypto_funcs
 import socket
 import time
 
-HOST = '127.0.0.1'  # The server's hostname or IP address
-PORT = 8000  # The port used by the server
-
 
 def decryption(cipherkey, ciphertext, privkey_pem):
     aes_key = Crypto_funcs.rsa_decryption(privkey_pem, cipherkey)
@@ -31,14 +28,25 @@ def receive_from_another(HOST, PORT):
                 return data
 
 
-privkey_pem, pubkey_pem = Crypto_funcs.rsa_keys_generate()
+def B_main(HOST='127.0.0.1', PORT=8000):
+    privkey_pem, pubkey_pem = Crypto_funcs.rsa_keys_generate()
 
-send_to_another(HOST, PORT, pubkey_pem)
-time.sleep(1)
+    send_to_another(HOST, PORT, pubkey_pem)
+    time.sleep(1)
 
-cipherkey = receive_from_another(HOST, PORT)
-time.sleep(1)
+    cipherkey = receive_from_another(HOST, PORT)
+    time.sleep(1)
 
-ciphertext = receive_from_another(HOST, PORT)
+    ciphertext = receive_from_another(HOST, PORT)
 
-print(decryption(cipherkey, ciphertext, privkey_pem))
+    print(decryption(cipherkey, ciphertext, privkey_pem))
+
+
+HOST = '127.0.0.1'  # The server's hostname or IP address
+PORT = 8000  # The port used by the server
+
+print('''Run this program only after Alice.py'
+Here will be ur massage from previous program, u are welcome.
+
+Your massage: ''', end='')
+B_main(HOST, PORT)

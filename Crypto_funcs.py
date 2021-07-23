@@ -16,9 +16,6 @@ def aes_key_generate():
     return key.encode('utf-8')
 
 
-plaintext = "Text may be any length you wish, no padding is required"
-
-
 def aes_encryption(plaintext, key):
     aes = pyaes.AESModeOfOperationCTR(key)
     return aes.encrypt(plaintext)
@@ -49,14 +46,18 @@ def rsa_decryption(privkey_pem, ciphertext):
     privkey = rsa.PrivateKey.load_pkcs1(privkey_pem, 'PEM')  # (keyfile:bytes, format='PEM')
     return rsa.decrypt(ciphertext, privkey)
 
-# test_key = aes_key_generate()
-# print(test_key)
-# privkey_pem, pubkey_pem = rsa_keys_generate()
 
-# test_aes_text = aes_encryption('test text test 123 !23$%@?>  =+QW f', test_key)
-# test_key = rsa_encryption(pubkey_pem, test_key)
+def test_functions(test_text):  # if something doesnt work u can activate this function and find what u need
+    test_key = aes_key_generate()
+    print(test_key)
+    privkey_pem, pubkey_pem = rsa_keys_generate()
 
-# test_key = rsa_decryption(privkey_pem, test_key)
+    test_aes_text = aes_encryption(test_text, test_key)
+    test_key = rsa_encryption(pubkey_pem, test_key)
 
-# print(test_key)
-# print(aes_decryption(test_aes_text, test_key))
+    test_key = rsa_decryption(privkey_pem, test_key)
+
+    print(test_key)
+    print(aes_decryption(test_aes_text, test_key))
+
+# test_functions('test 123 ! - () * & ^ TEST')

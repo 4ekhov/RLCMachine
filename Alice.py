@@ -4,9 +4,6 @@ import Crypto_funcs
 import socket
 import time
 
-HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
-PORT = 8000  # Port to listen on (non-privileged ports are > 1023)
-
 
 def message(text, pubkey_pem):
     aes_key = Crypto_funcs.aes_key_generate()
@@ -32,13 +29,26 @@ def send_to_another(HOST, PORT, text):
         s.send(text)
 
 
-your_message = input()
+def A_main(massage, HOST='127.0.0.1', PORT=8000):
+    your_message = massage
 
-pubkey_pem = receive_from_another(HOST, PORT)
-time.sleep(1)
+    pubkey_pem = receive_from_another(HOST, PORT)
+    time.sleep(1)
 
-finmes = message(your_message, pubkey_pem)
-send_to_another(HOST, PORT, finmes[0])
-time.sleep(1)
+    finmes = message(your_message, pubkey_pem)
+    send_to_another(HOST, PORT, finmes[0])
+    time.sleep(1)
 
-send_to_another(HOST, PORT, finmes[1])
+    send_to_another(HOST, PORT, finmes[1])
+
+
+print('''
+This is the first u program u need to start. Write there a massage, which u want do send (only latin letters).
+Run second program (Bob.py) after typed ur massage.
+''')
+text = input('Type your text: ')
+
+HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
+PORT = 8000  # Port to listen on (non-privileged ports are > 1023)
+
+A_main(text, HOST, PORT)
