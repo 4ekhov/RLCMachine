@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 
 import Crypto_funcs
 import socket
@@ -12,20 +12,31 @@ def decryption(cipherkey, ciphertext, privkey_pem):
 
 
 def send_to_another(HOST, PORT, message):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((HOST, PORT))
-        s.sendall(message)
+    # with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    #   s.connect((HOST, PORT))
+    #   s.sendall(message)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind((HOST, PORT))
+    sock.listen(1)
+    conn, addr = sock.accept()
+    conn.send(message)
+    conn.close()
 
 
 def receive_from_another(HOST, PORT):
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind((HOST, PORT))
-        s.listen()
-        conn, addr = s.accept()
-        with conn:
-            while True:
-                data = conn.recv(1024)
-                return data
+    # with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    #   s.bind((HOST, PORT))
+    # s.listen()
+    # conn, addr = s.accept()
+    #    with conn:
+    #       while True:
+    #          data = conn.recv(1024)
+    #         return data
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((HOST, PORT))
+    data = (sock.recv(1024))
+    sock.close()
+    return data
 
 
 def B_main(HOST='127.0.0.1', PORT=8000):
@@ -42,11 +53,11 @@ def B_main(HOST='127.0.0.1', PORT=8000):
     print(decryption(cipherkey, ciphertext, privkey_pem))
 
 
-HOST = '127.0.0.1'  # The server's hostname or IP address
+HOST = 'localhost'  # The server's hostname or IP address
 PORT = 8000  # The port used by the server
 
-print('''Run this program only after Alice.py'
-Here will be ur massage from previous program, u are welcome.
+print('''Run this program before Alice.py
+Here will be ur message from second program, u are welcome.
 
-Your massage: ''', end='')
+Your message: ''', end='')
 B_main(HOST, PORT)
