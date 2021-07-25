@@ -1,7 +1,7 @@
 import socket
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.bind(('', 8080))
+sock.bind(('localhost', 8080))
 
 sock.listen(1)
 
