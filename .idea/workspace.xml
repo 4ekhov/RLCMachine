@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="95e29de7-7217-45bd-9798-8315142e021c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +54,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Alice">
+  <component name="RunManager" selected="Python.Bob">
     <configuration name="Alice" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RLCMachine" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,15 +162,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Alice" />
         <item itemvalue="Python.Bob" />
+        <item itemvalue="Python.Alice" />
         <item itemvalue="Python.socket_client_example" />
         <item itemvalue="Python.socket_server_example" />
         <item itemvalue="Python.socktest2" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="95e29de7-7217-45bd-9798-8315142e021c" name="Default Changelist" comment="" />
@@ -161,6 +182,31 @@
       <option name="presentableId" value="Default" />
       <updated>1626864072665</updated>
     </task>
+    <task id="LOCAL-00001" summary="just commit">
+      <created>1627209056098</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1627209056098</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="just commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="just commit" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1627209061544">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1627209061544" />
+    <state x="691" y="308" key="git4idea.merge.GitPullDialog" timestamp="1627208952066">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="691" y="308" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1627208952066" />
   </component>
 </project>

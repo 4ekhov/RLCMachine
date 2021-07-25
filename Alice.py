@@ -10,18 +10,18 @@ def gen_message(text, pubkey_pem):
     return [cipherkey, ciphertext]
 
 
-def send_to_another(HOST, PORT, message):
+def send_to_another(message):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.bind((HOST, PORT))
+    sock.bind((SENDING_HOST, PORT))
     sock.listen(1)
     conn, addr = sock.accept()
     conn.send(message)
     conn.close()
 
 
-def receive_from_another(HOST, PORT):
+def receive_from_another():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.connect((HOST, PORT))
+    sock.connect((RECEIVING_HOST, PORT))
     data = (sock.recv(1024))
     sock.close()
     return data
@@ -30,14 +30,14 @@ def receive_from_another(HOST, PORT):
 def A_communication(message):
     your_message = message
 
-    pubkey_pem = receive_from_another(RECEIVING_HOST, PORT)
+    pubkey_pem = receive_from_another()
     time.sleep(0.05)
 
     finmes = gen_message(your_message, pubkey_pem)
-    send_to_another(SENDING_HOST, PORT, finmes[0])
+    send_to_another(finmes[0])
     time.sleep(0.05)
 
-    send_to_another(SENDING_HOST, PORT, finmes[1])
+    send_to_another(finmes[1])
     print('Check input of Bob.py')
 
 
