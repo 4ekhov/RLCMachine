@@ -41,12 +41,14 @@ def A_communication(message):
     print('Check input of Bob.py')
 
 
-RECEIVING_HOST = input("Type server's ip: ")
 SENDING_HOST = socket.gethostname()
+print('Your name in network is:', SENDING_HOST)
+RECEIVING_HOST = input("Type server's ip/name: ")
 PORT = 8000  # Port to listen on (non-privileged ports are > 1023)
 
-print('''This is the second program u need to start.
-    Write there a message, which u want to send (only latin letters).
+print('''
+This is the second program you need to start.
+Write there a message, which you want to send (only latin letters).
     ''')
 
 text = input('Type your text: ')

@@ -40,12 +40,14 @@ def B_communication():
     print(decryption(cipherkey, ciphertext, privkey_pem))
 
 
-RECEIVING_HOST = input("Type client's ip: ")
-SENDING_HOST = socket.gethostname()  # The server's hostname or IP address
+SENDING_HOST = socket.gethostname()
+print('Your name in network is:', SENDING_HOST)
+RECEIVING_HOST = input("Type client's ip/name: ")
 PORT = 8000  # The port used by the server
 
-print('''Run this program before Alice.py
-Here will be ur message from second program, u are welcome.
+print('''
+Run this program before Alice.py
+Here will be message from second program, ypu are welcome.
 
-Your message: ''', end='')
+The message: ''', end='')
 B_communication()
