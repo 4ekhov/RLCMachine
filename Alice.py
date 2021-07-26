@@ -53,11 +53,11 @@ except Exception:
     RECEIVING_HOST = input("Type client's ip/name: ")
     PORT = 8000  # Port to listen on (non-privileged ports are > 1023)
 
+    print('''
+    This is the second program you need to start.
+    Write there a message, which you want to send (only latin letters).
+        ''')
 
-print('''
-This is the second program you need to start.
-Write there a message, which you want to send (only latin letters).
-    ''')
-
-text = input('Type your text: ')
-A_communication(text)
+    text = input('Type your text: ')
+    A_communication(text)
+input('type enter to close')

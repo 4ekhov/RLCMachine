@@ -52,9 +52,10 @@ except Exception:
     RECEIVING_HOST = input("Type server's ip/name: ")
     PORT = 8000  # The port used by the server
 
-print('''
-Run this program before Alice.py
-Here will be message from second program, ypu are welcome.
-
-The message: ''', end='')
-B_communication()
+    print('''
+    Run this program before Alice.py
+    Here will be message from second program, ypu are welcome.
+    
+    The message: ''', end='')
+    B_communication()
+input('type enter to close')
