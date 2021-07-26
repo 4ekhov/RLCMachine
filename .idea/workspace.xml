@@ -54,7 +54,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../enigma_4vg" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.Alice">
+  <component name="RunManager" selected="Python.Bob">
     <configuration name="Alice" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RLCMachine" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -162,8 +162,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Alice" />
         <item itemvalue="Python.Bob" />
+        <item itemvalue="Python.Alice" />
         <item itemvalue="Python.Crypto_funcs" />
         <item itemvalue="Python.socket_client_example" />
         <item itemvalue="Python.socket_server_example" />

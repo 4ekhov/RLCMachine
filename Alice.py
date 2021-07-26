@@ -1,6 +1,7 @@
 import Crypto_funcs
 import socket
 import time
+from requests import get
 
 
 def gen_message(text, pubkey_pem):
@@ -41,10 +42,17 @@ def A_communication(message):
     print('Check input of Bob.py')
 
 
-SENDING_HOST = socket.gethostname()
-print('Your name in network is:', SENDING_HOST)
-RECEIVING_HOST = input("Type server's ip/name: ")
-PORT = 8000  # Port to listen on (non-privileged ports are > 1023)
+try:
+    server = get('http://api.ipify.org').text
+    print('Your ip in network is:', server)
+    print('Recommended port: 8000 or other >1023'
+          'Use Hamachi or other VPN to create local network')
+except Exception:
+    SENDING_HOST = socket.gethostname()
+    print('Your name in local network is:', SENDING_HOST)
+    RECEIVING_HOST = input("Type client's ip/name: ")
+    PORT = 8000  # Port to listen on (non-privileged ports are > 1023)
+
 
 print('''
 This is the second program you need to start.

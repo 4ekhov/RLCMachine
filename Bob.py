@@ -1,6 +1,7 @@
 import Crypto_funcs
 import socket
 import time
+from requests import get
 
 
 def decryption(cipherkey, ciphertext, privkey_pem):
@@ -40,10 +41,16 @@ def B_communication():
     print(decryption(cipherkey, ciphertext, privkey_pem))
 
 
-SENDING_HOST = socket.gethostname()
-print('Your name in network is:', SENDING_HOST)
-RECEIVING_HOST = input("Type client's ip/name: ")
-PORT = 8000  # The port used by the server
+try:
+    server = get('http://api.ipify.org').text
+    print('Your ip in network is:', server)
+    print('Recommended port: 8000 or other >1023'
+          'Use Hamachi or other VPN to create local network')
+except Exception:
+    SENDING_HOST = socket.gethostname()
+    print('Your name in local network is:', SENDING_HOST)
+    RECEIVING_HOST = input("Type server's ip/name: ")
+    PORT = 8000  # The port used by the server
 
 print('''
 Run this program before Alice.py
